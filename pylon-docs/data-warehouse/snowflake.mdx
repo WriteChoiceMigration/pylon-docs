@@ -1,0 +1,67 @@
+---
+description: Sync customer issue data into Snowflake
+icon: snowflake
+'og:description': Sync customer issue data into Snowflake
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/kcfYpVMtk8aUHYNBU3jk
+'og:title': Snowflake | Pylon
+title: Snowflake
+'twitter:description': Sync customer issue data into Snowflake
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/kcfYpVMtk8aUHYNBU3jk
+'twitter:title': Snowflake | Pylon
+---
+## Setup
+
+**Snowflake**
+
+Follow these [instructions](https://docs.snowflake.com/en/user-guide/key-pair-auth#generate-the-private-key) to generate an unencrypted RSA private key and associated public key.
+
+[Assign](https://docs.snowflake.com/en/user-guide/key-pair-auth#assign-the-public-key-to-a-snowflake-user) the public key to a Snowflake user that Pylon will authenticate as. We recommend creating a new role with access to just the database you wish to use with Pylon, and finally granting that role to the authenticating user.
+
+**Pylon**
+
+Install the Snowflake App from the [Apps Directory](https://app.usepylon.com/apps).
+
+This will require your snowflake Account Identifier which can be found using these [instructions](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-1-preferred-account-name-in-your-organization). It should be in the form `<organization_name>-<account_name>`
+
+You will also need the Snowflake login name of the user you associated the public key with as well as the generated private key. The login name may differ from the user name/display name. Find this in the `Users & Roles` page under `Admin` in you Snowflake account.
+
+Ensure you provide Pylon with the full private key including the header/footer. It should look like:
+
+```
+-----BEGIN PRIVATE KEY-----
+<Key Contents>
+-----END PRIVATE KEY-----
+```
+
+Once the connection is tested and validated then you can create a Warehouse Sync.
+
+### Warehouse Sync
+
+<Info>
+We recommend creating a new database and schema within your account to store Pylon data. For best practice in access control, we also recommend creating a new role with access to just that database, and finally granting that role to the authenticating user.
+</Info>
+
+Warehouse syncs require the following information:
+
+1. **Warehouse (Optional)**
+
+    The warehouse that is used to write data. If one is not specified, the default warehouse will be used.
+
+2. **Database** 
+
+    The database that data will be written to. We recommend creating a new database for Pylon data.
+3. **Schema**
+
+    The schema that data will be written to. We recommend creating a new schema for Pylon data.
+4. **Role (Optional)**
+
+    The role that database operations will be performed with. Must have write access to the database.
+5. **Table**
+
+The name of the table that data will be written to. Pylon will automatically create this table for you with the proper schema.
+
+### Switching from password to key-pair
+
+If you previously used password authentication to set up your warehouse sync you will need to disconnect the Snowflake app from the App Directory. Upon reconnecting the app it will ask you for the user, account ID, and private key.
+
+The existing sync should be unaffected.

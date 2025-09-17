@@ -1,0 +1,48 @@
+---
+description: Rollup qualitative data onto your account views to quickly assess accounts
+icon: sparkles
+'og:description': Rollup qualitative data onto your account views to quickly assess
+  accounts
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/xmV6ZVrzvIHQcahAUYwB
+'og:title': AI Fields | Pylon
+title: AI Fields
+'twitter:description': Rollup qualitative data onto your account views to quickly
+  assess accounts
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/xmV6ZVrzvIHQcahAUYwB
+'twitter:title': AI Fields | Pylon
+---
+AI fields allow you to rollup qualitative insights into structured fields and provide **explainability** for account signals. AI fields can be any data type and can be prompted to look through particular data, most commonly [AI Context](/pylon-docs/account-intelligence/notebooks/blocks#ai-context) in [Notebooks](/pylon-docs/account-intelligence/notebooks). AI fields can draw from context in any communication source, call recordings, CRM data fields, and much more.
+
+<Info>
+Fields are fully customizable based on your use case!
+</Info>
+
+### Example: Low Sentiment
+
+For example, rollup a "Low Sentiment" field on accounts into a True/False value to use in calculations, and also surface the reason the customer has low sentiment.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="869" sizes="(max-width: 640px) 400px, 768px" src="/images/37580aee.png" width="2526"/>
+</Frame>
+
+### Example: Upsell Opportunities
+
+Use AI fields to surface upsell signals into a multiselect [Custom Fields](/pylon-docs/platform/custom-fields) based on a prompt and set of options.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="1412" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/7a8d2937.png" width="1032"/>
+</Frame>
+
+This field is extracting structured data from [AI Context](/pylon-docs/account-intelligence/notebooks/blocks#ai-context) in[Notebooks](/pylon-docs/account-intelligence/notebooks), which has its own prompt. It interprets and structures the data into a field that can now be filtered on and used in views, triggers, etc.
+
+<Frame caption="Prompt for upsell opportunities notebook block">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="614" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/a73d45ec.png" width="1676"/>
+</Frame>
+
+
+
+<Frame caption="Resulting output for upsell opportunities notebook block">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="354" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/2840a88b.png" width="1690"/>
+</Frame>
+
+

@@ -1,0 +1,25 @@
+---
+description: How to authenticate with Pylon's API
+'og:description': How to authenticate with Pylon's API
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/OKVrqobKxTsLAUj3wQS7
+'og:title': Authentication | Pylon
+title: Authentication
+'twitter:description': How to authenticate with Pylon's API
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/OKVrqobKxTsLAUj3wQS7
+'twitter:title': Authentication | Pylon
+---
+The Pylon API uses [Bearer](https://www.rfc-editor.org/rfc/rfc6750#section-2.1) authentication. This means you’ll need to pass your API token in the header of your request:
+
+```
+Authorization: Bearer <token>
+```
+
+<Info>
+Generate an API token in the [Pylon dashboard](https://app.usepylon.com/settings/api-tokens).
+</Info>
+
+Once creating a token, you can hit the [`/me`](/pylon-docs/developer/api/api-reference/me) endpoint to retrieve details about your organization to confirm your token is working as expected.
+
+<Info>
+Actions performed by the token will show up with name of the token.
+</Info>

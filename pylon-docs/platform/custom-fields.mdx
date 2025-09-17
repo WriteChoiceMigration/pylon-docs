@@ -1,0 +1,95 @@
+---
+description: Set up custom fields to add structured data to your issues, accounts,
+  and contacts.
+icon: pen-field
+'og:description': Set up custom fields to add structured data to your issues, accounts,
+  and contacts.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/JLDaZJn9ROAEKlyCI0S7
+'og:title': Custom Fields | Pylon
+sidebarTitle: Overview
+title: Custom Fields
+'twitter:description': Set up custom fields to add structured data to your issues,
+  accounts, and contacts.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/JLDaZJn9ROAEKlyCI0S7
+'twitter:title': Custom Fields | Pylon
+---
+Custom fields on objects in Pylon allow you to store additional custom data on each object. They can be filled in manually, synced from your CRM, autofilled with AI, set via. APIs or workflows, or filled via. end user submission. You can configure them in Settings > Pylon in the "[Account Fields](https://app.usepylon.com/settings/account-custom-fields)", "[Contact Fields](https://app.usepylon.com/settings/contact-custom-fields)", and "[Issue Fields](https://app.usepylon.com/settings/issue-custom-fields?tab=fields)" pages.
+
+Custom fields can be used across the product in views, analytics, triggers, macros, and more.
+
+## Overview
+
+### Field Types
+
+Pylon supports the following custom field types:
+
+* Text
+* Number
+* Decimal
+* Select
+* Multi-select
+* Boolean
+* Date
+* User
+* URL
+* Datetime
+* [Formulas](/pylon-docs/account-intelligence/fields/formulas)
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="1264" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/b2ca0121.png" width="1720"/>
+</Frame>
+
+Example of a "Product Area" custom field
+
+
+## Usage
+
+### Manually Fill
+
+Custom fields can be manually filled from their individual record pages.
+
+Issue fields: filled in via. the issue sidebar.
+
+Account fields: filled in via. the accounts page.
+
+Contact fields: filled in via. the contacts page.
+
+### ✨ AI Autofill
+
+<Info>
+AI autofilled fields can always be manually updated! Once manually updated on a record, they will not be overridden by AI in the future.
+</Info>
+
+Custom fields can be autofilled using AI to reduce manual work.
+
+Fields with a ✨ by their name are fields that are fields that are being automatically filled via. AI.
+
+For account fields specifically, learn more here [AI Fields](/pylon-docs/account-intelligence/fields/ai-fields).
+
+### Sync from CRM
+
+Account and contact custom fields can be synced directly from your CRM. Multiple times a day these values will be updated from the latest data in your CRM.
+
+To enable this, you should connect your CRM via the [Apps Directory](https://app.usepylon.com/apps). More details can be found in the [CRM](/pylon-docs/integrations/crm) articles.
+
+### Fill via. API
+
+Use our [PATCH /issues](/pylon-docs/developer/api/api-reference/issues), [PATCH /contacts](/pylon-docs/developer/api/api-reference/contacts), and [PATCH /accounts](/pylon-docs/developer/api/api-reference/accounts) API endpoints in order to set custom field values via. API.
+
+For issues raised from the Chat Widget, our JavaScript API can set custom field values on issue submission.
+
+### Fill via. Formulas
+
+Use [Formulas](/pylon-docs/account-intelligence/fields/formulas) to automatically fill in field values uses calculations.
+
+### Fill via. Triggers or Macros
+
+Use the "Set custom field value" action on a trigger or macro in order to programmatically fill a custom field value.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="538" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/713f0921.png" width="1638"/>
+</Frame>
+
+### Fill via. End User Submission
+
+Use [Ticket Forms](/pylon-docs/support-workflows/ticket-forms), collect data [directly in Slack](/pylon-docs/integrations/chat/slack/collect-data), or allow customers to set fields via. the customer portal to populate custom field values based on user input.

@@ -1,0 +1,62 @@
+---
+description: Intelligently calculated account fields to help with decisioning on accounts
+icon: superscript
+'og:description': Intelligently calculated account fields to help with decisioning
+  on accounts
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/gAte8BEVixexc5X4zGmZ
+'og:title': Formulas | Pylon
+title: Formulas
+'twitter:description': Intelligently calculated account fields to help with decisioning
+  on accounts
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/gAte8BEVixexc5X4zGmZ
+'twitter:title': Formulas | Pylon
+---
+With formulas, you have access to an array of manipulations and calculations you can perform on your data to create additional fields.
+
+Formulas can have any data type available in [Custom Fields](/pylon-docs/platform/custom-fields), and are simply a calculation that is performed to fill in that data field. A formula field is usable across the product anywhere custom fields are, including in views, triggers, the API, etc.
+
+### Example: Number of Meetings
+
+For example, a formula to calculate the number of meetings you've had with a customer in the last 90 days.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="910" sizes="(max-width: 640px) 400px, 768px" src="/images/0adeb205.png" width="1046"/>
+</Frame>
+
+### Example: Usage Percentage
+
+Here is an example of using division on two synced fields to calculate seat utilization percentage.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="898" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/93f2abd4.png" width="1036"/>
+</Frame>
+
+### Example: Channel Members Left
+
+The number of customer users who have left your channel in the last 30 days.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="890" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/3156add8.png" width="1030"/>
+</Frame>
+
+### Example: Number of Feature Requests
+
+The number of issues that are tied with engineering work (via. [Ticketing](/pylon-docs/integrations/ticketing) integrations).
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="938" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/069d060a.png" width="1036"/>
+</Frame>
+
+### Example: Lifecycle Stage
+
+The stage of the customer (onboarding or renewal) based on their progress through the contract.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="698" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/440441af.png" width="1028"/>
+</Frame>
+
+Examples of other formulas are:
+
+* Calculating the number of issues that were categorized as bugs in the last 30 days
+* Calculating the number of [Custom Activities](/pylon-docs/account-intelligence/activities/custom-activities) of a certain type that have occurred
+* Creating a weighted health score across different components

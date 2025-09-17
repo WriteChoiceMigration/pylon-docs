@@ -1,0 +1,65 @@
+---
+description: Have internal discussions on customer issues
+icon: reel
+'og:description': Have internal discussions on customer issues
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/bhQbWlcw2ednN12JD1qq
+'og:title': Internal Threads | Pylon
+title: Internal Threads
+'twitter:description': Have internal discussions on customer issues
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/bhQbWlcw2ednN12JD1qq
+'twitter:title': Internal Threads | Pylon
+---
+## Usage
+
+Tabs on the top of the issue view show all conversations related to a given customer issue. The first tab contains the external conversation, overlayed with all internal conversations (distinguished visually by a yellow/orange background and a note on where it's posted).
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="659" sizes="(max-width: 640px) 400px, 768px" src="/images/f8e72ffc.png" width="685"/>
+</Frame>
+
+Tabs contains conversations related to the issue from internal slack channels, product ticketing systems (Linear, Jira, etc.) and more.
+
+### Creating an Internal Thread
+
+An internal thread can be created from an issue by hitting the "+ Internal Thread" tab along the top of the issue or from the "Reply" dropdown on the top right of the editor. Internal threads can be discussions in Pylon or Slack, and represent separate conversation related to customer issue.
+
+Each issue can have multiple internal threads related to it, but each internal thread can only be related to a single Pylon issue.
+
+<Frame caption="An internal thread in Slack">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="360" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/a13f38d7.png" width="1242"/>
+</Frame>
+
+When an internal thread is posted to Slack, context about the issue is posted and any comments in the thread will be synced back to Pylon.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="590" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/gif/threads.gif" width="800"/>
+</Frame>
+
+<Info>
+Internal threads are useful for looping in additional people and teams onto issues, while still tracking all the context in one place. Use it to:
+
+- Loop in engineering in a #bugs channel
+- Kickoff a feedback discussion about a feature request into a #project channel
+- Have a quick internal pricing negotiation discussion 
+- Looping in a 3rd party vendor over email
+</Info>
+
+You can also create internal threads automatically using [Triggers](/pylon-docs/platform/triggers). For example, set up a Trigger to automatically open up internal threads for all new issues, or just for issues marked as high priority. You can do this from the [Internal Threads](https://app.usepylon.com/settings/internal-threads) page in settings.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="189" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/a48aff95.png" width="833"/>
+</Frame>
+
+### Syncing an existing Internal Thread
+
+If you already have an ongoing thread in Slack and would like to sync it to an existing Pylon issue, you can use the "Sync internal thread" shortcut in Slack. To do this:
+
+1) Hover over a message thread in Slack
+
+2) Click the 3 dots on the far right that say "More Actions"
+
+3) Select the "Sync internal thread" shortcut. If it's not immediately visible in the menu, click on "More message shortcuts..." the first time you are using it!
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="150" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/b2c06373.png" width="884"/>
+</Frame>

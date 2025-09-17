@@ -1,0 +1,32 @@
+---
+description: Connect Pylon to Opsgenie to create incidents.
+icon: bell
+'og:description': Connect Pylon to Opsgenie to create incidents.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/k7yaQyN0WRBWDkFKQdsN
+'og:title': Opsgenie | Pylon
+title: Opsgenie
+'twitter:description': Connect Pylon to Opsgenie to create incidents.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/k7yaQyN0WRBWDkFKQdsN
+'twitter:title': Opsgenie | Pylon
+---
+## Setup
+
+Click into the App Directory from your Pylon dashboard and then click on the PagerDuty integration to view setup instructions.
+
+## Usage
+
+Installing the Opsgenie app will give you a new action "Alert on Issue" that is useable as part of your own custom workflows.
+
+A common workflow is to create a [Trigger](/pylon-docs/platform/triggers) that will send an Opsgenie alert when an issue in Pylon is marked as Urgent priority. A template is available as a starting point for your workflow.
+
+<Frame caption="Trigger template">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="133" sizes="(max-width: 640px) 400px, 768px" src="/images/22549565.png" width="760"/>
+</Frame>
+
+<Frame caption="Opsgenie action">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="186" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/8fa92766.png" width="732"/>
+</Frame>
+
+<Info>
+The Opsgenie integration will create an incident with the relevant context on the specified service.
+</Info>

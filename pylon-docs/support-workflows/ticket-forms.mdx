@@ -1,0 +1,42 @@
+---
+description: Let your customers submit structured tickets across different channels.
+icon: rectangle-list
+'og:description': Let your customers submit structured tickets across different channels.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/NS9Nch8A1HboK0RreU0L
+'og:title': Ticket Forms | Pylon
+title: Ticket Forms
+'twitter:description': Let your customers submit structured tickets across different
+  channels.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/NS9Nch8A1HboK0RreU0L
+'twitter:title': Ticket Forms | Pylon
+---
+<Frame caption="Web form example">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="839" sizes="(max-width: 640px) 400px, 768px" src="/images/9509983c.png" width="1477"/>
+</Frame>
+
+## Setup
+
+1. Visit the [Ticket Form settings page](https://app.usepylon.com/settings/ticket-forms) and create a form.
+2. Configure your form, including settings for which channels you wish to use it in. Supported channels for forms are Web (Public, Customer Portal, Chat Widget) and Slack.
+
+    <Frame>
+    <img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="825" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/40d4052e.png" width="1214"/>
+    </Frame>
+
+3. Now that your form is configured, configure its usage within your desired channels.
+    1. [Customer Portal](https://app.usepylon.com/settings/customer-portal): Customize which sets of form are visible to which sets of users within the customer portal via Settings > Communications > Customer Portal.
+    2. Public: Share the public link to your form. You can also embed it on your site or app if you put the form link in an iframe. You'll need to make sure that in the settings for the form, you have "Allow anyone on the internet to access URL" checked in "Web Settings."
+    3. [Chat Widget](https://app.usepylon.com/settings/in-app-chat?tab=home_screen): Embed the ticket form inside your Chat Widget and customize which sets of forms are visible to which sets of users.
+    4. Slack: Use [Triggers](/pylon-docs/platform/triggers) to configure when a form gets sent out in Slack. Use our default recipe as a starting point!
+
+        <Frame>
+        <img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="85" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/ca82f287.png" width="822"/>
+        </Frame>
+
+### Conditional Fields
+
+Within your form, you can add conditional fields. This allows you to prompt the user for additional information based on their answer to a given question.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="782" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/63d3debc.png" width="2060"/>
+</Frame>

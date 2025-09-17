@@ -1,0 +1,156 @@
+---
+description: Available API methods to programmatically interface with the chat
+icon: code
+'og:description': Available API methods to programmatically interface with the chat
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/0B0EJmeza7hTYvMCuKNb
+'og:title': JavaScript API | Pylon
+title: JavaScript API
+'twitter:description': Available API methods to programmatically interface with the
+  chat
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/0B0EJmeza7hTYvMCuKNb
+'twitter:title': JavaScript API | Pylon
+---
+We expose some functions in the Frontend to programmatically control the Chat window.
+
+## `window.Pylon("show")`
+
+Opens the chat window. Useful for programmatically triggering the chat window from an explicit support flow or button on your site.
+
+## `window.Pylon("hide")`
+
+Closes the chat window.
+
+## `window.Pylon("onShow")`
+
+Pass in a callback function that is called when the chat is shown. Useful for managing state of the chat window. If you pass in `null` as the callback function, the existing callback is removed.
+
+
+```js
+window.Pylon("onShow", function () {
+  console.log("show chat!");
+});
+```
+
+## `window.Pylon("onHide")`
+
+Pass in a callback function that is called when the chat is hidden. Useful for managing state of the chat window. If you pass in `null` as the callback function, the existing callback is removed.
+
+
+```js
+window.Pylon("onHide", function () {
+  console.log("hide chat!");
+});
+```
+
+## `window.Pylon("hideChatBubble")`
+
+Hides the chat bubble. Useful for hiding it in situations where it’s inappropriate or it’s blocking something underneath (ie an open modal). Does not override the “Show Chat Bubble” setting on the settings page.
+
+## `window.Pylon("showChatBubble")`
+
+Shows the chat bubble. Useful for hiding it in situations where it’s inappropriate or it’s blocking something underneath (ie an open modal). Does not override the “Show Chat Bubble” setting on the settings page.
+
+## `window.Pylon("onChangeUnreadMessagesCount")`
+
+Pass in a callback function that is called immediately and when the unread message count changes. If you pass in `null` as the callback function, the existing callback is removed.
+
+
+```js
+window.Pylon("onChangeUnreadMessagesCount", function (unreadCount) {
+  console.log("unread changed!", unreadCount);
+});
+```
+
+## `window.Pylon("setNewIssueCustomFields")`
+
+Pass in an object of custom field slugs to their values. New issues created through the Chat Widget messaging will have these custom fields values set.
+
+You must first create the corresponding custom fields [inside of Pylon](https://app.usepylon.com/settings/issue-custom-fields).
+
+<Info>
+Be sure to use the custom field slug, not the label!
+</Info>
+
+Example:
+
+
+```js
+window.Pylon("setNewIssueCustomFields", { user_id: "abc123" });
+```
+
+You can find the slug value on the custom fields [page](https://app.usepylon.com/settings/issue-custom-fields) next to the custom field.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="94" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/711b6a6a.png" width="831"/>
+</Frame>
+
+## `window.Pylon("setTicketFormFields")`
+
+Pass in an object field slugs to their values. Ticket forms in the Chat Widget will have these values set as default values.
+
+Note that the passed object will apply to all ticket forms. Superfluous and/or invalid fields will be ignored.
+
+Example:
+
+
+```js
+window.Pylon("setTicketFormFields", { subject: "I need help on Pylon because..." });
+```
+
+You can find the slug value on the custom fields [page](https://app.usepylon.com/settings/issue-custom-fields) next to the custom field.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="94" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/711b6a6a.png" width="831"/>
+</Frame>
+
+## `window.Pylon("showNewMessage", "string")`
+
+Pass in a message to prepopulate in the editor. For example, use this when a user runs into an error in your application and you want to prefill a message they can submit.
+
+```js
+window.Pylon("showNewMessage", "I'm experiencing an issue with syncing from Google Sheets to Email and could use some assistance");
+```
+
+Optionally, this string can also be HTML. For example, for rendering a link. Pass an optional argument indicating the message to be shown is HTML.
+
+NOTE: Only specific HTML tags are supported: `<a>`, `<b>`, `<p>`, and `<i>`. If other tags are used, the editor may error.
+
+```js
+window.Pylon("showNewMessage", "I'm experiencing an issue with <a href='https://www.app.company.com/sync/123'>syncing</a> from Google Sheets to Email and could use some assistance", { isHtml: true});
+```
+
+## `window.Pylon("showTicketForm", "string")`
+
+Navigates the chat bubble to a specified ticket form, by ticket form slug.
+
+
+```js
+window.Pylon("showTicketForm", "test_ticket_form");
+```
+
+The ticket form slug can be found in the edit ticket form page under `Slug.`
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="204" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/8d6224e4.png" width="1250"/>
+</Frame>
+
+## `window.Pylon("showKnowledgeBaseArticle", "string")`
+
+Navigates the chat bubble to a specified knowledge base article, by article ID.
+
+
+```js
+window.Pylon("showKnowledgeBaseArticle", "123456789");
+```
+
+The article ID can be found in the URL of the public view of a knowledge base article, as the first set of numbers following `articles/`. In the following example, the identifier is "1234567899"
+
+<Frame caption="https://support.usepylon.com/articles/1234567899-how-to">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="88" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/b3817022.png" width="866"/>
+</Frame>
+
+It can also be found in the article settings panel in the Pylon app, under the article slug input.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="446" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/32698eb8.png" width="972"/>
+</Frame>

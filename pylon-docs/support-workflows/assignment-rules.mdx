@@ -1,0 +1,68 @@
+---
+description: Setup assignment rules to make sure issues make their way to the right
+  person.
+icon: square-user
+'og:description': Setup assignment rules to make sure issues make their way to the
+  right person.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/ZKzA8D6nglZPfTJowFCe
+'og:title': Assignment Rules | Pylon
+sidebarTitle: Overview
+title: Assignment Rules
+'twitter:description': Setup assignment rules to make sure issues make their way to
+  the right person.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/ZKzA8D6nglZPfTJowFCe
+'twitter:title': Assignment Rules | Pylon
+---
+As your team grows, assignment rules will allow you to make sure that issues are being handled by the right person.
+
+## Setup
+
+### Individual Assignment
+
+Individual assignment rules can be setup using the "Set issue assignee" action in [Triggers](/pylon-docs/platform/triggers).
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="482" sizes="(max-width: 640px) 400px, 768px" src="/images/38fd21ca.png" width="597"/>
+</Frame>
+
+### Team Assignment
+
+First create [Teams](/pylon-docs/platform/teams) that model groups of people. Then, create assignment strategies to automatically assign issues to individual members of a team. When an issue is assigned to a team, the individual owner of the issue can be determined by the team's assignment policy. There are additional options to make sure you assign issues based on current [User Status](/pylon-docs/support-workflows/assignment-rules/user-status).
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="964" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/ce90e6dc.png" width="2460"/>
+</Frame>
+
+#### Round Robin
+
+Rotate between each team member equally when assigning issues.
+
+#### Recurring
+
+Set up a daily or weekly repeating schedule. Based on the time of day, issues that are assigned to a team will fall onto the appropriately individual’s plate.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="596" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/3a785e6d.png" width="747"/>
+</Frame>
+
+### Usage
+
+Put team assignment policies into affect by creating [Triggers](/pylon-docs/platform/triggers) that automatically assigns issues to a certain team.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="84" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/a30189a0.png" width="822"/>
+</Frame>
+
+A recipe for a common workflow
+
+You can setup any number of workflows to make sure issues get to the right people. Some examples might be:
+
+* Routing high priority issues straight to Tier 3 support
+* Routing bugs about a specific topic to the subject matter expert for that product area
+* Reassigning issues that have had their SLA breached
+* Routing pre-sales issues from important accounts to your sales engineering team
+* Routing issues from named accounts to their CSM
+
+<Info>
+By creating subteams, you can effectively model complex assignment workflows, since each subteam can have its own assignment policy. If subteams are a part of a team assignment schedule, they will need an assignment policy set at the subteam level to work properly.
+</Info>

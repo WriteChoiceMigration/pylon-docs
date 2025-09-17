@@ -1,0 +1,23 @@
+/* Default (light mode) */
+a[href^="http"]:not([href="https://docs.usepylon.com/pylon-docs"])::after
+{
+  margin-left: 4px;
+  position: relative;
+  top: 1px;
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzU5NTQ1NCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMDQsNjRWMTY4YTEyLDEyLDAsMCwxLTI0LDBWOTNMNzIuNDksMjAwLjQ5YTEyLDEyLDAsMCwxLTE3LTE3TDE2Myw3Nkg4OGExMiwxMiwwLDAsMSwwLTI0SDE5MkExMiwxMiwwLDAsMSwyMDQsNjRaIj48L3BhdGg+PC9zdmc+");
+}
+
+/* Dark mode */
+.dark a[href^="http"]:not([href="https://docs.usepylon.com/pylon-docs"])::after
+{
+  content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iI2YwZjBmMCIgdmlld0JveD0iMCAwIDI1NiAyNTYiPjxwYXRoIGQ9Ik0yMDQsNjRWMTY4YTEyLDEyLDAsMCwxLTI0LDBWOTNMNzIuNDksMjAwLjQ5YTEyLDEyLDAsMCwxLTE3LTE3TDE2Myw3Nkg4OGExMiwxMiwwLDAsMSwwLTI0SDE5MkExMiwxMiwwLDAsMSwyMDQsNjRaIj48L3BhdGg+PC9zdmc+");
+}
+
+/* reset for other places */
+#footer a[href^="http"]::after,
+#navbar a[href^="http"]::after,
+#sidebar-content a[href^="http"]::after,
+a.no_external_icon[href^="http"]::after,
+a.card[href^="http"]::after {
+  content: none !important;
+}

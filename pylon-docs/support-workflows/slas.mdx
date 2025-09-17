@@ -1,0 +1,44 @@
+---
+description: Set differentiated service level agreement timers on customer issues.
+icon: hourglass
+'og:description': Set differentiated service level agreement timers on customer issues.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/EykP7ZtrpQ4WUeCJxvRo
+'og:title': SLAs | Pylon
+title: SLAs
+'twitter:description': Set differentiated service level agreement timers on customer
+  issues.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/EykP7ZtrpQ4WUeCJxvRo
+'twitter:title': SLAs | Pylon
+---
+SLAs (AKA Service Level Agreements) are rules for how quickly you want to respond to and resolve customer issues.
+
+Pylon supports three types of SLAs:
+
+1. First Response Time: how quickly someone on your team should respond to an initial message or request from the customer.
+2. Next Response Time: how quickly someone on your team should respond to each subsequent message in a customer request after the first.
+3. Resolution Time: how long it takes to resolve a request after it’s been started (more often called Time to Resolution).
+
+## Setup
+
+1. Visit the [SLAs page](https://app.usepylon.com/settings/slas) and hit Create
+2. Select from one of the available templates for common SLA configurations for a good starting point
+
+    <Frame>
+    <img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="592" sizes="(max-width: 640px) 400px, 768px" src="/images/8c6a04f0.png" width="1222"/>
+    </Frame>
+
+3. Modify the trigger with the conditions and values that make sense for your business. SLAs can be applied based on many factors, including the priority of the issue, the type of customer who raised it, etc.
+
+### Notification
+
+To setup notifications for SLAs, choose the "Send Slack notification on SLA breaches" template. Update the channel to your preferred one, or the action to a different notification type (such as email).
+
+When an issue violates an SLA
+
+1. The configured action will be taken, for example notifying a Slack channel
+
+2. Users can also subscribe to notifications for SLA breaches on issues they are assigned to on the [notifications page](https://app.usepylon.com/settings/notifications).
+
+### Support Hours
+
+If you want SLAs to only increment during your working hours, you can configure Support Hours on the [Settings Page](https://app.usepylon.com/settings/support-hours). This makes sure that weekends and evenings will not inflate your count of SLA breaches.

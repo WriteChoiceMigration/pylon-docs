@@ -1,0 +1,76 @@
+---
+description: Set up complex workflows and automations to execute your business processes
+icon: bolt
+'og:description': Set up complex workflows and automations to execute your business
+  processes
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/BIN1KMSZgNTThtCsuCgm
+'og:title': Triggers | Pylon
+sidebarTitle: Overview
+title: Triggers
+'twitter:description': Set up complex workflows and automations to execute your business
+  processes
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/BIN1KMSZgNTThtCsuCgm
+'twitter:title': Triggers | Pylon
+---
+## Setup
+
+Go to the Triggers page under Settings to start creating triggers. Triggers will always be organized into a folder to help your team stay organized. Once you hit "create trigger" you'll have the option to select from various premade templates or start from scratch.
+
+### Kickoffs
+
+Every trigger is activated by change(s) in state for an Issue, Account, or Contact.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="546" sizes="(max-width: 640px) 400px, 768px" src="/images/e93fc67b.png" width="806"/>
+</Frame>
+
+### Conditions
+
+#### Filters
+
+Narrow down the specific conditions of when this trigger should be executed by applying filters. Select from many default and custom attributes on issues, accounts, and contacts. The default logic is an "AND" operator meaning all criteria must be met, but you can also create more complex combinations of "AND" + "OR" by selecting "Create Filter Group" from the dropdown.
+
+<Frame caption="Condition for support issues from customers with spend below 5k">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="514" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/d16e9f66.png" width="768"/>
+</Frame>
+
+#### Time Delay
+
+Time delay conditions allow you to delay the action taken based on either wall clock time or your defined support hours (i.e. setting SLA breaches to only count time passed during support hours).
+
+<Frame caption="A trigger to autoclose issues after 3 days of customer inactivity">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="420" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/e7eabe87.png" width="1372"/>
+</Frame>
+
+#### AI
+
+Use AI filters to intelligently route issues between teams or provide specific responses in specific situations.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="636" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/ab280ae5.png" width="2286"/>
+</Frame>
+
+### Actions
+
+Pick from a set of actions to take when the conditions of the trigger are met. Chain many distinct actions together. Actions include sending notifications, auto-replying to issues, setting field values in Pylon, custom actions in external systems, and many more.
+
+<Frame caption="An action sequence of assigning an issue to the support team and DMing the assignee a message.">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="1182" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/b8e4132b.png" width="1858"/>
+</Frame>
+
+
+### Organization
+
+Triggers are executed in order from top to bottom for a given kickoff event. You can separate triggers into groups for easier management.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="552" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/f0bc8795.png" width="831"/>
+</Frame>
+
+### Recipes
+
+Select from many pre-built templates of common automations.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="1969" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/ea1a395d.png" width="3109"/>
+</Frame>

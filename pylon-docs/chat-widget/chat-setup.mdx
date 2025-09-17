@@ -1,0 +1,114 @@
+---
+description: How to setup Pylon's Chat Widget
+icon: hammer
+'og:description': How to setup Pylon's Chat Widget
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/wWagLaAEUvQlv6BwMBwe
+'og:title': Chat Setup | Pylon
+title: Chat Setup
+'twitter:description': How to setup Pylon's Chat Widget
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/wWagLaAEUvQlv6BwMBwe
+'twitter:title': Chat Setup | Pylon
+---
+## Installation
+
+<Info>
+Installing the Chat Widget will involve adding code to your Frontend. It may be necessary to involve an engineer to get this installed if you don’t have access to the codebase.
+</Info>
+
+1. **Getting Started**
+
+    Grab your `APP_ID` [here](https://app.usepylon.com/settings/in-app-chat).
+
+2. **Add Script to Body**
+    Add the following `<script>` to right before the `</body>` tag in your `index.html`.
+    Make sure to replace the `APP_ID` with the `APP_ID` you grabbed from Step 1.
+
+    ```html
+    <script>
+    (function(){var e=window;var t=document;var n=function(){n.e(arguments)};n.q=[];n.e=function(e){n.q.push(e)};e.Pylon=n;var r=function(){var e=t.createElement("script");e.setAttribute("type","text/javascript");e.setAttribute("async","true");e.setAttribute("src","https://widget.usepylon.com/widget/APP_ID");var n=t.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};if(t.readyState==="complete"){r()}else if(e.addEventListener){e.addEventListener("load",r,false)}})();
+    </script>
+    ```
+
+3. **Content Security Policy**
+
+    If you have a CSP, you will need to set up the following policy:
+
+    ```
+    Content-Security-Policy: 
+        connect-src 'self' https://*.usepylon.com wss://*.pusher.com;
+        script-src 'self' https://widget.usepylon.com;
+        font-src 'self' https://*.usepylon.com;
+        style-src 'self' https://*.usepylon.com;
+        img-src 'self' https://*.usepylon.com https://pylon-avatars.s3.us-west-1.amazonaws.com https://d3vl36l12sfx26.cloudfront.net;
+    ```
+
+    For context, we use PostHog for product metrics and Pusher for sending realtime chat messages.
+
+4. **Enable the Chat Widget**
+
+    Anywhere in your React code you can access the `window` object and set the `pylon` config.
+
+    You should add this code wherever the user has already logged in and details like the User’s email, name, etc. become available.
+
+    ```js
+    window.pylon = {
+      chat_settings: {
+        app_id: "APP_ID",
+        email: "USER_EMAIL",
+        name: "USER_FULL_NAME",
+
+        // (Optional) If you have the user's profile image available through something like Auth0
+        avatar_url: "USER_PROFILE_IMAGE_URL",
+
+        // (Optional) If you are using Pylon's identity verification
+        email_hash: "USER_EMAIL_HASH",
+        
+        // (Optional) If you want to force association of an issue/contact with a certain account.
+        account_id: "057a3564-fc1b-4224-9292-dcf718653452",
+        
+        // (Optional) If you want to force association of an issue/contact with a certain account.
+        // Learn more about external IDs here: https://docs.usepylon.com/pylon-docs/developer/api/external-ids.
+        account_external_id: "ab38e36b-3e28-4e2d-b976-6282735b77eb"
+      },
+    };
+    ```
+
+    Example usage in a React component:
+
+    ```js
+    useEffect(() => {
+      if (user.loggedIn) {
+        window.pylon = {
+          chat_settings: {
+            app_id: APP_ID,
+            email: user.email,
+            name: user.fullName,
+            avatar_url: user.profileImgUrl,
+          },
+        };
+      }
+    }, [user]);
+    ```
+
+5. **Setup Chat Support Channel**
+    Create a Slack channel in your workspace where you can respond to chats, like `#chat-support`.
+
+    Note: If you make this channel private, add the Pylon bot to the channel.
+
+    Set `#chat-support` as your Chat Support Channel [here](https://app.usepylon.com/settings/in-app-chat).
+
+6. **Chat Widget Color**
+
+    Set the color of your chat widget [here](https://app.usepylon.com/settings/in-app-chat).
+
+7. **Identity Verification**
+
+    This is optional, but recommended.
+
+    [Here’s how to set it up](/pylon-docs/chat-widget/identity-verification).
+
+8. **Turn it On**
+
+    At the top of the Chat Widget Settings page on the Settings tab, toggle Enable Chat Widget on.
+
+9. **All Done!**

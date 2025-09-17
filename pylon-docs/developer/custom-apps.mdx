@@ -1,0 +1,665 @@
+---
+icon: browser
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/1enZyEv3oj4H1XZ9sDtA
+'og:title': Custom Apps | Pylon
+title: Custom Apps
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/1enZyEv3oj4H1XZ9sDtA
+'twitter:title': Custom Apps | Pylon
+---
+Show a custom widget in the issue sidebar with information pulled from your own system or external sources.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="350" sizes="(max-width: 640px) 400px, 768px" src="/images/afa942cb.png" width="405"/>
+</Frame>
+
+## Setup
+
+Visit the Settings Page and look for Custom Apps in the Connections section
+
+<Warning>
+You will need to have an API endpoint that can be called to fetch the data for the custom app. When configuring the app, the URL of the API endpoint will be a required field.
+</Warning>
+
+1. **Create the App** 
+  
+    Create a new custom app by clicking on the “Create App” button. Give your app a descriptive name, provide the endpoint URL of the API that will be called to fetch the data, and configure any custom headers that need to be sent with the request.
+
+2. **Connect the App**
+
+    For security purposes, Pylon expects the API endpoint to complete a one-time handshake. Pylon will send a GET request to the endpoint with the following query params:
+
+    <table><thead><tr><th>Param</th><th>Value</th></tr></thead><tbody><tr><td>`request_type`</td><td>`verify`</td></tr><tr><td>`code`</td><td>`0bcb6f583f0e3ca5f034fdd960d6105c`</td></tr></tbody></table>
+
+    The code will be a unique code that is generated for each handshake. The endpoint should respond with one of the following responses:
+
+    1. Set the `Content-Type` header to `application/json` and respond with a JSON object containing the `code` value that was sent in the query params.
+
+        ```http
+        HTTP 200 OK
+        Content-type: application/json
+        {"code":"0bcb6f583f0e3ca5f034fdd960d6105c"}
+        ```
+
+    2. Set the `Content-Type` header to `text/plain` and respond with the `code` value as the response body.
+
+        ```http
+        HTTP 200 OK
+        Content-type: text/plain
+        0bcb6f583f0e3ca5f034fdd960d6105c
+        ```
+
+    Once the API endpoint is configured to respond to the handshake, you can click the “Retry Connection” option in the app dropdown to send the handshake request. If the handshake does not succeed, the status will be `Unverified` and you will need to click the “Retry Connection” option to try again.
+
+<Warning>
+If the app is disconnected, the handshake will need to be completed again to reconnect the app.
+</Warning>
+
+3. **Load and render data from the API**
+
+The final step is to configure the endpoint to return the data that you want to display in the issue sidebar. Pylon will send a GET request to the endpoint with the following query params:
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>`request_type`</td>
+<td>`fetch_data`</td>
+</tr>
+<tr>
+<td>`app_id`</td>
+<td>id of the custom app</td>
+</tr>
+<tr>
+<td>`widget_id`</td>
+<td>id of the widget associated with the custom app</td>
+</tr>
+<tr>
+<td>`issue_id`</td>
+<td>id of the issue that the app is being loaded for</td>
+</tr>
+<tr>
+<td>`organization_id`</td>
+<td>id of the organization that the issue belongs to</td>
+</tr>
+<tr>
+<td>`account_id`</td>
+<td>id of the account that the issue belongs to</td>
+</tr>
+<tr>
+<td>`requester_id`</td>
+<td>user id of the requester of the issue</td>
+</tr>
+<tr>
+<td>`requester_email`</td>
+<td>email of the requester of the issue</td>
+</tr>
+</tbody>
+</table>
+
+The endpoint should respond with a JSON object containing the data that you want to display. For more information about the schema of the data, look at the [schema section](/pylon-docs/developer/custom-apps#response-schema) below.
+
+<Warning>
+You can use the IDs from the request to fetch any additional information you might need from our [API](/pylon-docs/developer/api/api-reference).
+</Warning>
+
+## Components
+
+The custom app can be built using the following components. If the component type is not recognized, the custom app will render an error state.
+
+## Card
+
+Render a related set of data together. Custom apps can render multiple cards. All components except cards can be used in the card component.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="350" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/5aff43ae.png" width="405"/>
+</Frame>
+
+<Accordion title="Config">
+```json
+"components": [
+  {
+    "type": "card",
+    "header": {
+      "title": "Additional Info"
+    },
+    "components": [
+      {
+        "type":     "text",
+        "label":    "Requester title",
+        "value":    "POTUS",
+        "icon_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Seal_of_the_President_of_the_United_States.svg"
+      },
+      {
+        "type":  "text",
+        "label": "Requester address",
+        "value": "1600 Pennsylvania Avenue NW\nWashington, DC 20500\nUnited States of America"
+      },
+      {
+        "type":  "date_time",
+        "label": "Time of request",
+        "value": "2024-07-15T12:34:56Z"
+      },
+      {
+        "type":  "badge",
+        "label": "Labels",
+        "items": [
+          {
+            "value": "IMPORTANT",
+            "color": "red"
+          },
+          {
+            "value": "POTUS",
+            "color": "blue"
+          },
+        ]
+      },
+      {
+        "type":  "link",
+        "label": "Home Page",
+        "url":   "https://www.whitehouse.gov/"
+      },
+      {
+        "type":        "button",
+        "button_type": "link",
+        "label":       "Contact",
+        "url":         "https://www.whitehouse.gov/"
+      }
+    ],
+  }
+]
+```
+</Accordion>
+
+## Text
+
+The text value can be a multiline string. Any text that overflows the container will be truncated with an ellipsis.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="119" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/994ad15d.png" width="416"/>
+</Frame>
+
+<Accordion title="Config">
+```json
+"components": [
+  {
+    "type":     "text",
+    "label":    "Requester title",
+    "value":    "POTUS",
+    "icon_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Seal_of_the_President_of_the_United_States.svg"
+  },
+  {
+    "type":  "text",
+    "label": "Requester address",
+    "value": "1600 Pennsylvania Avenue NW\nWashington, DC 20500\nUnited States of America"
+  }
+]
+```
+</Accordion>
+
+## Date Time
+
+Date time value should be in ISO date time format [(RFC 3339)](https://datatracker.ietf.org/doc/html/rfc3339).
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="77" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/b327f9e8.png" width="409"/>
+</Frame>
+
+<Accordion title="Config">
+```json
+"components": [
+  {
+    "type":  "date_time",
+    "label": "Sample Date Time",
+    "value": "2024-07-15T12:34:56Z"
+  },
+  {
+    "type":     "date_time",
+    "label":    "Date time with icon",
+    "value":    "2024-07-15T12:34:56Z",
+    "icon_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Seal_of_the_President_of_the_United_States.svg"
+  }
+]
+```
+</Accordion>
+
+
+## Badge
+
+The badge component can have any number of badges. If the value of the badge is too long, the text in the badge will be truncated with an ellipsis.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="91" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/f7f3a066.png" width="415"/>
+</Frame>
+
+<Accordion title="Config">
+```json
+"components": [
+  {
+    "type":  "badge",
+    "label": "Annotations",
+    "items": {
+      {
+        "value": "Informative",
+        "color": "blue"
+      },
+      {
+        "value": "Warning",
+        "color": "orange"
+      },
+      {
+        "value": "Danger!",
+        "color": "red"
+      },
+      {
+        "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "color": "gray"
+      },
+      {
+        "value": "Success :)",
+        "color": "green"
+      }
+    }
+  }
+]
+```
+</Accordion>
+
+
+## Button
+
+The button component can be used to show a link, for example to an admin dashboard.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="57" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/f12073d9.png" width="415"/>
+</Frame>
+
+<Accordion title="Config">
+```json
+"components": [
+  {
+    "type":        "button",
+    "button_type": "link",
+    "label":       "Click Me",
+    "url":         "http://google.com"
+  }
+]
+```
+</Accordion>
+
+## Link
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="67" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/e974fa2a.png" width="415"/>
+</Frame>
+
+<Accordion title="Config">
+```json
+"components": [
+  {
+    "type":  "link",
+    "label": "Example Link",
+    "url":   "http://example.com"
+  },
+  {
+    "type":  "link",
+    "label": "Long Link",
+    "url":   "https://app.usepylon.com/issues?conversationID=abc"
+  }
+]
+```
+</Accordion>
+
+## Divider
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="166" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/725253c3.png" width="411"/>
+</Frame>
+
+<Accordion title="Config">
+```json
+"components": [
+  {
+    "type":  "divider"
+  }
+]
+```
+</Accordion>
+
+
+## Response Schema
+
+## Version 1.0.0
+
+<AccordionGroup>
+  <Accordion title="Schema">
+    ```json
+    {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Custom App Data Schema",
+      "description": "Data to be displayed in the issue sidebar.",
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "The version of the schema.",
+          "example": "1.0.0"
+        },
+        "header": {
+          "type": "object",
+          "description": "Header information.",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Title of the header.",
+              "example": "Sample Header"
+            },
+            "icon_url": {
+              "type": "string",
+              "description": "URL to the header icon.",
+              "format": "uri",
+              "example": "http://example.com/icon.png"
+            }
+          }
+        },
+        "components": {
+          "type": "array",
+          "description": "List of components.",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/cardComponent" },
+              { "$ref": "#/definitions/textComponent" },
+              { "$ref": "#/definitions/dateTimeComponent" },
+              { "$ref": "#/definitions/badgeComponent" },
+              { "$ref": "#/definitions/buttonComponent" },
+              { "$ref": "#/definitions/linkComponent" },
+              { "$ref": "#/definitions/dividerComponent" }
+            ]
+          }
+        }
+      },
+      "required": ["version", "header", "components"],
+      "definitions": {
+        "cardComponent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["card"],
+              "description": "Component type.",
+              "example": "card"
+            },
+            "header": {
+              "type": "object",
+              "description": "Header information.",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "description": "Title of the card header.",
+                  "example": "Sample Header"
+                },
+                "icon_url": {
+                  "type": "string",
+                  "description": "URL to the card header icon.",
+                  "format": "uri",
+                  "example": "http://example.com/icon.png"
+                }
+              }
+            },
+            "components": {
+              "type": "array",
+              "description": "List of components.",
+              "items": {
+                "oneOf": [
+                  { "$ref": "#/definitions/textComponent" },
+                  { "$ref": "#/definitions/dateTimeComponent" },
+                  { "$ref": "#/definitions/badgeComponent" },
+                  { "$ref": "#/definitions/buttonComponent" },
+                  { "$ref": "#/definitions/linkComponent" },
+                  { "$ref": "#/definitions/dividerComponent" }
+                ]
+              }
+            }
+          },
+          "required": ["type", "components"]
+        },
+        "textComponent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["text"],
+              "description": "Component type.",
+              "example": "text"
+            },
+            "label": {
+              "type": "string",
+              "description": "Label for the text component.",
+              "example": "Sample Text"
+            },
+            "value": {
+              "type": "string",
+              "description": "Value for the text component.",
+              "example": "This is a sample text"
+            },
+            "icon_url": {
+              "type": "string",
+              "description": "URL to the text icon.",
+              "format": "uri",
+              "example": "http://example.com/text-icon.png"
+            }
+          },
+          "required": ["type", "label", "value"]
+        },
+        "dateTimeComponent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["date_time"],
+              "description": "Component type.",
+              "example": "date_time"
+            },
+            "label": {
+              "type": "string",
+              "description": "Label for the date_time component.",
+              "example": "Sample Date"
+            },
+            "value": {
+              "type": "string",
+              "description": "Value for the date_time component.",
+              "format": "date-time",
+              "example": "2024-07-15T12:34:56Z"
+            },
+            "icon_url": {
+              "type": "string",
+              "description": "URL to the date_time icon.",
+              "format": "uri",
+              "example": "http://example.com/date-icon.png"
+            }
+          },
+          "required": ["type", "label", "value"]
+        },
+        "badgeComponent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["badge"],
+              "description": "Component type.",
+              "example": "badge"
+            },
+            "label": {
+              "type": "string",
+              "description": "Label for the badge component.",
+              "example": "Sample Badge"
+            },
+            "items": {
+              "type": "array",
+              "description": "Items for the badge component.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string",
+                    "description": "Value of the badge item.",
+                    "example": "Badge 1"
+                  },
+                  "color": {
+                    "type": "string",
+                    "description": "Color of the badge item.",
+                    "example": "blue",
+                    "enum": ["blue", "green", "red", "orange", "gray"]
+                  }
+                },
+                "required": ["value", "color"]
+              }
+            }
+          },
+          "required": ["type", "label", "items"]
+        },
+        "buttonComponent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["button"],
+              "description": "Component type.",
+              "example": "button"
+            },
+            "label": {
+              "type": "string",
+              "description": "Label for the button component.",
+              "example": "Click Me"
+            },
+            "button_type": {
+              "type": "string",
+              "description": "Type of button.",
+              "example": "link",
+              "enum": ["link"]
+            },
+            "url": {
+              "type": "string",
+              "description": "URL for the button.",
+              "format": "uri",
+              "example": "http://example.com"
+            }
+          },
+          "required": ["type", "label", "button_type", "url"]
+        },
+        "linkComponent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["link"],
+              "description": "Component type.",
+              "example": "link"
+            },
+            "label": {
+              "type": "string",
+              "description": "Label for the link component.",
+              "example": "Example Link"
+            },
+            "url": {
+              "type": "string",
+              "description": "URL for the link.",
+              "format": "uri",
+              "example": "http://example.com"
+            }
+          },
+          "required": ["type", "label", "url"]
+        },
+        "dividerComponent": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["divider"],
+              "description": "Component type.",
+              "example": "divider"
+            }
+          },
+          "required": ["type"]
+        }
+      }
+    }
+    ```
+  </Accordion>
+  <Accordion title="Example">
+    ```json
+    {
+      "version": "1.0.0",
+      "header": {
+        "title": "Sample Header",
+        "icon_url": "http://example.com/icon.png"
+      },
+      "components": [
+        {
+          "type": "card",
+          "components": [
+            {
+              "type": "text",
+              "label": "Nested Text",
+              "value": "This is nested text",
+              "icon_url": "http://example.com/nested-text-icon.png"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "label": "Sample Text",
+          "value": "This is a sample text",
+          "icon_url": "http://example.com/text-icon.png"
+        },
+        {
+          "type": "date_time",
+          "label": "Sample Date",
+          "value": "2024-07-15T12:34:56Z",
+          "icon_url": "http://example.com/date-icon.png"
+        },
+        {
+          "type": "badge",
+          "label": "Sample Badge",
+          "items": [
+            {
+              "value": "Badge 1",
+              "color": "blue"
+            },
+            {
+              "value": "Badge 2",
+              "color": "green"
+            }
+          ]
+        },
+        {
+          "type": "button",
+          "label": "Click Me",
+          "button_type": "link",
+          "url": "http://example.com"
+        },
+        {
+          "type": "link",
+          "label": "Example Link",
+          "url": "http://example.com"
+        },
+        {
+          "type": "divider"
+        }
+      ]
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Usage
+
+Embed your custom app within the issue view.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="308" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/96e1d827.png" width="414"/>
+</Frame>

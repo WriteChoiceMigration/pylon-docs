@@ -1,0 +1,68 @@
+---
+description: An overview of issue statuses in Pylon.
+icon: route-interstate
+'og:description': An overview of issue statuses in Pylon.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/68SwQCyl9EYBeH0QIEIS
+'og:title': Statuses | Pylon
+title: Statuses
+'twitter:description': An overview of issue statuses in Pylon.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/68SwQCyl9EYBeH0QIEIS
+'twitter:title': Statuses | Pylon
+---
+Pylon has 5 statuses for issues: `New`, `On You`, `On Customer`, `On Hold`, and `Closed`. Each has special behavior in how it functions individually and interacts with other aspects of Pylon.
+
+## Categories
+
+### New
+
+New indicates that an issue has not yet had a response by your team since it has started being tracked in Pylon.
+
+When you receive a new email issue, Chat Widget issue, etc. it will almost always start in New.
+
+### On You
+
+On You indicates the next action on the issue needs to be taken by your team.
+
+Pylon automatically uses AI to determine whether next action is needed by your team or by the customer when there is new activity on an issue. This means if a team member responds to a customer issue directly in Slack, email, etc, Pylon will still move the issue to the appropriate status without them taking manual action.
+
+### On Customer
+
+On Customer indicates that the next action on the issue needs to be taken by the customer. Issues are typically in this status when you are waiting for a response, acknowledgement, or additional information from the customer.
+
+Pylon automatically uses AI to determine whether next action is needed by your team or by the customer when there is new activity on an issue. This means if a team member responds to a customer issue directly in Slack, email, etc, Pylon will still move the issue to the appropriate status without them taking manual action.
+
+### On Hold
+
+On Hold indicates that an issue is pending an action external to Pylon. Issues are typically in this status when they are waiting on a bug fix from engineering.
+
+If using Pylon's [ticketing integrations](/pylon-docs/integrations/ticketing), issues will automatically be moved to on hold when a corresponding unfinished engineering ticket is linked to a Pylon issue. Issues are also automatically moved to on hold when they are snoozed.
+
+Issues are automatically moved out of on hold when there is new public activity on the issue.
+
+### Closed
+
+Closed indicates an issue has been resolved. In Pylon, closed issues can be reopened if there is new activity on the issue, for example, a customer in Slack sending a new message into a thread.
+
+
+## Custom Statuses
+
+Use custom statuses to further personalize issue workflows to your business. For example, you can make a "Waiting on Engineering" status in the On Hold category to give more details to anyone viewing the Kanban board.
+
+Custom statuses can be used anywhere statuses are used — they show up as separate Kanban columns/List rows, and can be set with keyboard shortcuts in macros, triggers, and more.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="200" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/2c657be8.png" width="660"/>
+</Frame>
+
+Custom statuses + their icon colors can be adjusted on the [Issue Statuses](https://app.usepylon.com/settings/issue-statuses) page in Settings.
+
+## Setting Status
+
+The status of an issue can be set explicitly by your team by:
+
+* Dragging the issue card on the Kanban Board
+* Selecting issue cards or rows and bulk setting their status
+* Clicking on the status to choose from the dropdown when a specific issue is open
+* Using the keyboard shortcut `s` when an issue is open
+
+You can also use features like [Triggers](/pylon-docs/platform/triggers) or [Macros](/pylon-docs/platform/macros) to automatically set the status of an issue as part of a workflow.

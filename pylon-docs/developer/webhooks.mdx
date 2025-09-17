@@ -1,0 +1,26 @@
+---
+description: Receive webhooks for various events happening in Pylon.
+icon: webhook
+'og:description': Receive webhooks for various events happening in Pylon.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/mBqi5tGQdrQaucmanmcr
+'og:title': Webhooks | Pylon
+title: Webhooks
+'twitter:description': Receive webhooks for various events happening in Pylon.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/mBqi5tGQdrQaucmanmcr
+'twitter:title': Webhooks | Pylon
+---
+<Info>
+Webhooks are user-defined HTTP callbacks that are triggered by specific events within Pylon.
+</Info>
+
+## Setup
+
+1. Go to the [Webhooks](https://app.usepylon.com/settings/webhooks) page in Settings to setup your target endpoint
+2. Specify the URL of your endpoint as well as any custom headers you'd like sent on each webhook. For example, here you can include authorization information like a Bearer token.
+3. Go to [Triggers](https://app.usepylon.com/settings/triggers) in Settings and create a [Trigger](/pylon-docs/platform/triggers) with an Action of "Send webhook". Use the "When" and "If" condition of the trigger to control when the webhook fires.
+
+Using templated variables, you can construct your desired webhook body to look exactly like how you'd like to receive it:
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="1246" sizes="(max-width: 640px) 400px, 768px" src="/images/75fa1c19.png" width="2212"/>
+</Frame>

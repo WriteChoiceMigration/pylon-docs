@@ -1,0 +1,42 @@
+---
+description: Sync customer issue data into BigQuery
+icon: hexagon
+'og:description': Sync customer issue data into BigQuery
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/CCvYpOwGiC8koinoorRo
+'og:title': BigQuery | Pylon
+title: BigQuery
+'twitter:description': Sync customer issue data into BigQuery
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/CCvYpOwGiC8koinoorRo
+'twitter:title': BigQuery | Pylon
+---
+## Setup
+
+Head to the data warehouse [app section](https://app.usepylon.com/apps?category=data_warehouse) inside Pylon and connect the Big Query app.
+
+<Info>
+We recommend creating a new dataset to house your Pylon customer issue data. You can also create a new Project or use an existing one.
+</Info>
+
+You’ll need the following to configure your BigQuery connection:
+
+1. **Key File JSON**
+
+    Create a [service account key](https://cloud.google.com/iam/docs/keys-create-delete#creating) for your account and upload the JSON.
+
+2. **Project ID**
+
+    The ID of your project.
+
+3. **Dataset ID**
+
+    Create a [dataset](https://cloud.google.com/bigquery/docs/datasets) where Pylon data will be housed.
+
+4. **(Optional) Location**
+
+    The [location](https://cloud.google.com/bigquery/docs/locations) in which the dataset is located.
+
+5. **Table ID**
+
+    The name of the table that data will be written to. Pylon will automatically create this table for you with the proper schema.
+
+After you enter in these details, hit test to verify your connection!

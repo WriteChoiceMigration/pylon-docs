@@ -1,0 +1,78 @@
+---
+description: Give your agents manuals to execute complex procedures.
+icon: book-heart
+'og:description': Give your agents manuals to execute complex procedures.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/pW5rXNEyWMr6Uda3k1fI
+'og:title': Runbooks | Pylon
+title: Runbooks
+'twitter:description': Give your agents manuals to execute complex procedures.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/pW5rXNEyWMr6Uda3k1fI
+'twitter:title': Runbooks | Pylon
+---
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="810" sizes="(max-width: 640px) 400px, 768px" src="/images/86629a67.png" width="824"/>
+</Frame>
+
+A runbook for handing hardware failure issues
+
+Write instructions in natural language to help your AI Agent handle specific scenarios. When your AI Agents are assigned to issues, they will determine the most relevant runbook they have access to and start executing it.
+
+You can think of Runbooks as having the power of programming, but with the simplicity of writing a document with steps.
+
+## Actions
+
+Agents have the ability to perform actions inside and outside Pylon. On the [Actions](https://app.usepylon.com/settings/ai-controls/actions) page in Settings, view all the actions available to the agent and configure additional custom actions, like API calls.
+
+<Frame caption="Example of GET API call definition">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="1364" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/d902db92.png" width="2496"/>
+</Frame>
+
+By default, AI Agents have a whole set of Pylon actions available to them, including responding to customers, leaving internal notes, setting custom fields, and more.
+
+## Variables
+
+Actions and Runbooks allow scoped variables available to make your Runbook execution as flexible as possible. These variables can exist only in the Runbook or come from other fields in Pylon. For example, you can use variables in the body of API calls or as a way to pass information between steps in a Runbook. Use the `{{` characters to see available variables or create a new one.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="634" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/db762c36.png" width="1222"/>
+</Frame>
+
+## Steps
+
+Runbooks consist of a sequence of steps that each use actions, variables, and natural language.
+
+Chain together steps to create an end-to-end workflow for how an Agent should handle a certain scenario.
+
+<Info>
+Runbooks can involve customer interaction or be fully internal facing!
+</Info>
+
+Here's an example of a Runbook step:
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="114" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/131721fa.png" width="1154"/>
+</Frame>
+
+Note that since the step is in natural language, mentioning the account ID is a 5 digit alphanumeric value means we get natural enforcement and validation from the AI. For example, if the user provides something 6 digits long, the AI will re-prompt them with a suggestion for the correct prompting.
+
+<Info>
+It will take some iterating to prompt the AI in the manner that's best for the workflow you are trying to create!
+</Info>
+
+## Testing
+
+Runbooks can also be tested in isolation of AI agents using the tester on the runbook page.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="600" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/gif/CleanShot 2025-06-05 at 23.31.53.gif" width="800"/>
+</Frame>
+
+## Human-guided Runbooks
+
+Runbooks can not only be executed directly by AI agents, but also by humans on your team directly. Runbooks are accessible in the [Copilot](/pylon-docs/support-workflows/issues/copilot) tab of the issue sidebar, and will be suggested by [Issue Suggestions](/pylon-docs/support-workflows/issues/copilot#issue-suggestions).
+
+A team member can then directly step through exection of steps in the runbook, guided by the AI copilot.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="727" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/gif/CleanShot 2025-06-06 at 20.59.40.gif" width="800"/>
+</Frame>

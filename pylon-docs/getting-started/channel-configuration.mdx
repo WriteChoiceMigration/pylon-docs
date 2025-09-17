@@ -1,0 +1,123 @@
+---
+description: 'To integrate Pylon seamlessly with Slack, there''s two main steps to
+  configuration: setting up your Internal Threads workflow, and then actually connecting
+  individual channels in Pylon.'
+icon: hashtag
+'og:description': 'To integrate Pylon seamlessly with Slack, there''s two main steps
+  to configuration: setting up your Internal Threads workflow, and then actually connecting
+  individual channels in Pylon.'
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/siTrUXqj7Wkkl0c6OLES
+'og:title': Channel Configuration | Pylon
+title: Channel Configuration
+'twitter:description': 'To integrate Pylon seamlessly with Slack, there''s two main
+  steps to configuration: setting up your Internal Threads workflow, and then actually
+  connecting individual channels in Pylon.'
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/siTrUXqj7Wkkl0c6OLES
+'twitter:title': Channel Configuration | Pylon
+---
+## Step 1: Setting up Internal Threads
+
+Internal threads are a dedicated threads in Slack to discuss and collaborate on new customer issues internally. All discussion in these threads will be synced back to Pylon! We recommend setting this up prior to connecting any other channels so they'll be ready to sync as soon as you pull data into Pylon.
+
+### For Small Teams
+
+Make one public channel called *#customer-alerts*.
+
+### For Larger Teams
+
+If you have multiple team members handling accounts, we recommend opening up one channel per person on your team that's responsible for handling account messages.
+
+For example, if you have three CSMs Alex, Sabrina, and John:
+
+* *#alex-customers*
+* *#sabrina-customers*
+* *#john-customers*
+
+<Info>
+If you’re in a public workspace, or just want to make your internal threads in a private channel, add Pylon to the channel following the below instructions, but choose `Triage Channel`.
+</Info>
+
+Go to Settings > Internal Threads (under Workflows) and select the first template.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="236" sizes="(max-width: 640px) 400px, 768px" src="/images/5c3059d0.png" width="1648"/>
+</Frame>
+
+Under "Send To", pick the channel(s) you created above! You can always change where internal threads are created, or segment issues by account owner or other properties to create internal threads in different places for more complex team structures.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="809" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/0a83bd2b.png" width="1567"/>
+</Frame>
+
+## Step 2: Enabling Channels
+
+Channels in Pylon are bucketed into three categories:
+
+1. Customer Channels, where you're talking directly with your customers
+2. Community Channels, which typically contain users from many different companies
+3. Internal Channels, where users within your company are asking questions to other team members
+
+Each type of channel can be enabled in a slightly different way.
+
+### Enable a Customer Channel
+
+Pylon can be enabled in customer channels by one of 3 methods:
+
+* Bulk updating via the Accounts dashboard in Pylon
+* Manual enablement directly from a Slack channel
+* Autolinking via standard naming conventions
+
+<Info>
+**Private** customer channels must be enabled directly in Slack.
+</Info>
+
+#### Accounts Dashboard
+
+Select "Accounts" in the sidebar, and then click the purple "Add Account" button in the top right of the screen (which should bring you to the menu below). Pick "Slack" to bulk enable Pylon in relevant customer channels.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="427" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/dc34fd14.png" width="647"/>
+</Frame>
+
+#### Slack
+
+Pylon will have function in customer channels that you explicitly enable it in. If you want it to be enabled in channels automatically, you can use our [CRM widget](/pylon-docs/integrations/crm/salesforce#channel-creation-from-salesforce) to create and setup channels automatically.
+
+1. Go to your customer channel
+2. Type `/invite @Pylon` (or whatever you named the Pylon bot in [Set Bot Name](/pylon-docs/getting-started/slack-setup#set-bot-name)) and press enter.
+
+    <Frame>
+    <img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="143" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/2afbe17b.png" width="274"/>
+    </Frame>
+
+3. You’ll get a prompt to enable Pylon in the channel. Select `Customer Channel`.
+
+    <Frame>
+    <img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="300" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/e319d6b0.png" width="1360"/>
+    </Frame>
+
+4. Fill out the modal with your preferences, including selecting the desired triage channel (these will be saved for the next time)
+
+    <Frame>
+    <img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="784" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/8811dbab.png" width="1043"/>
+    </Frame>
+
+#### Autolink Channels
+
+If you have a common pattern to your slack channels (i.e. putting `ext-` at the beginning of all external channels), you can autolink them with Pylon. Head over to the Accounts page and click on the gear icon in the Add Account button. You'll be able to configure the pattern of your Slack channels there so they will sync automatically moving forward.
+
+<Frame>
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="182" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/e87e706a.png" width="519"/>
+</Frame>
+
+### Enable a Community Channel
+
+A community channel is a channel with users from many different companies, typically in a community workspace.
+
+Link this channel the same way you would a customer channel, but choose `Community Channel` once inviting Pylon to the channel.
+
+### Enable an Internal Channel
+
+An internal channel is a channel where users from within your company are asking questions, typically to the support or customer-facing team.
+
+You should link these types of channels only from the Pylon dashboard. You can [see here](https://support.usepylon.com/articles/4140972198-can-i-link-an-internal-channel-with-pylon) how to do this.

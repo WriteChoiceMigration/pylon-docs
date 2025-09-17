@@ -1,0 +1,32 @@
+---
+description: Connect Pylon to PagerDuty to create incidents.
+icon: pager
+'og:description': Connect Pylon to PagerDuty to create incidents.
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/KDW0x8EK6b2Rk8QVxUNz
+'og:title': PagerDuty | Pylon
+title: PagerDuty
+'twitter:description': Connect Pylon to PagerDuty to create incidents.
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/KDW0x8EK6b2Rk8QVxUNz
+'twitter:title': PagerDuty | Pylon
+---
+## Setup
+
+Click into the App Directory from your Pylon dashboard and then click on the PagerDuty integration to view setup instructions. Please make sure your PagerDuty token has write access in order to create a Pagerduty Alert from Pylon Triggers.
+
+## Usage
+
+Installing the PagerDuty app will give you a new action "Alert on Issue" that is useable to create your own custom workflows.
+
+A common workflow is to create a [Trigger](/pylon-docs/platform/triggers) that will create an incident for a given PagerDuty service when an issue in Pylon is marked as Urgent priority. A template is available as a starting point for your workflow.
+
+<Frame caption="Trigger template">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="high" height="139" sizes="(max-width: 640px) 400px, 768px" src="/images/358640db.png" width="724"/>
+</Frame>
+
+<Frame caption="PagerDuty action">
+<img alt="" class="block" data-testid="zoom-image" fetchpriority="low" height="568" loading="lazy" sizes="(max-width: 640px) 400px, 768px" src="/images/6d0ea904.png" width="1312"/>
+</Frame>
+
+<Info>
+The PagerDuty integration will create an incident with the relevant context on the specified service.
+</Info>

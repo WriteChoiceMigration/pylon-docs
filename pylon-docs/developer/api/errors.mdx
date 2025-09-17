@@ -1,0 +1,26 @@
+---
+description: Handling errors from Pylon's API
+'og:description': Handling errors from Pylon's API
+'og:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/UsvvQodnXKoevRumfRET
+'og:title': Errors | Pylon
+title: Errors
+'twitter:description': Handling errors from Pylon's API
+'twitter:image': https://docs.usepylon.com/pylon-docs/~gitbook/ogimage/UsvvQodnXKoevRumfRET
+'twitter:title': Errors | Pylon
+---
+Error responses are always in the format:
+
+```json
+{
+  "errors": [
+    "Contact not found!"
+  ],
+  "request_id": "0caedca7-a3cf-4ea5-b06e-f34093ad64ff"
+}
+```
+
+Pylon’s API returns errors with [HTTP Status Codes](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) along with errors messages.
+
+Spefically, you will find both a `request_id` and an string array of `errors` at the top level of the response payload.
+
+The `request_id` can be used as a reference to this specific API request. In cases where you need help, you can reach out to Pylon support with the `request_id` of your API call for help.

@@ -1,0 +1,452 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "almond",
+  "name": "Pylon",
+  "colors": {
+    "primary": "#4138C2",
+    "light": "#F8F9FF",
+    "dark": "#4138C2"
+  },
+  "styling": {
+    "eyebrows": "section"
+  },
+  "interaction": {
+    "drilldown": true
+  },
+  "appearance": {
+    "default": "light",
+    "strict": true
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
+  },
+  "fonts": {
+    "heading": {
+      "family": "Matter",
+      "format": "woff2",
+      "source": "https://cdn.prod.website-files.com/689071d222bec6ce3d3d6fbf/6891d15f3c2e56b6a2af7caf_MatterSemiBold.woff2"
+    },
+    "body": {
+      "family": "system-ui"
+    }
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "icon": "bolt",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "pylon-docs",
+              "pylon-docs/getting-started/publish-your-docs",
+              "pylon-docs/getting-started/slack-setup",
+              "pylon-docs/getting-started/channel-configuration",
+              "pylon-docs/getting-started/user-guide",
+              {
+                "group": "Pylonboarding",
+                "icon": "graduation-cap",
+                "pages": [
+                  "pylon-docs/getting-started/pylonboarding",
+                  "pylon-docs/getting-started/pylonboarding/issue-views",
+                  "pylon-docs/getting-started/pylonboarding/teams",
+                  "pylon-docs/getting-started/pylonboarding/account-management",
+                  "pylon-docs/getting-started/pylonboarding/knowledge-base",
+                  "pylon-docs/getting-started/pylonboarding/chat-widget",
+                  "pylon-docs/getting-started/pylonboarding/slas",
+                  "pylon-docs/getting-started/pylonboarding/broadcasts"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Support Workflows",
+            "pages": [
+              "pylon-docs/support-workflows/omnichannel-support",
+              {
+                "group": "Issues",
+                "icon": "ticket",
+                "pages": [
+                  "pylon-docs/support-workflows/issues",
+                  "pylon-docs/support-workflows/issues/views",
+                  "pylon-docs/support-workflows/issues/statuses",
+                  "pylon-docs/support-workflows/issues/message-editor",
+                  "pylon-docs/support-workflows/issues/copilot",
+                  "pylon-docs/support-workflows/issues/sidebar",
+                  "pylon-docs/support-workflows/issues/internal-threads",
+                  "pylon-docs/support-workflows/issues/proactive-issues",
+                  "pylon-docs/support-workflows/issues/translation",
+                  "pylon-docs/support-workflows/issues/bulk-actions",
+                  "pylon-docs/support-workflows/issues/issue-groups",
+                  "pylon-docs/support-workflows/issues/anomaly-detection"
+                ]
+              },
+              "pylon-docs/support-workflows/slas",
+              "pylon-docs/support-workflows/support-hours",
+              "pylon-docs/support-workflows/csat",
+              "pylon-docs/support-workflows/ticket-forms",
+              {
+                "group": "Assignment Rules",
+                "icon": "square-user",
+                "pages": [
+                  "pylon-docs/support-workflows/assignment-rules",
+                  "pylon-docs/support-workflows/assignment-rules/user-status"
+                ]
+              },
+              "pylon-docs/support-workflows/email",
+              "pylon-docs/support-workflows/ai-issue-qa"
+            ]
+          },
+          {
+            "group": "Platform",
+            "pages": [
+              {
+                "group": "Custom Fields",
+                "icon": "pen-field",
+                "pages": [
+                  "pylon-docs/platform/custom-fields",
+                  "pylon-docs/platform/custom-fields/required-and-conditional-fields"
+                ]
+              },
+              "pylon-docs/platform/tags",
+              "pylon-docs/platform/teams",
+              {
+                "group": "Triggers",
+                "icon": "bolt",
+                "pages": [
+                  "pylon-docs/platform/triggers",
+                  "pylon-docs/platform/triggers/logs-and-history"
+                ]
+              },
+              "pylon-docs/platform/macros",
+              "pylon-docs/platform/command-search",
+              "pylon-docs/platform/roles-and-user-management",
+              "pylon-docs/platform/training-data",
+              "pylon-docs/platform/ask-ai",
+              "pylon-docs/platform/surveys"
+            ]
+          },
+          {
+            "group": "AI Agents",
+            "pages": [
+              "pylon-docs/ai-agents/overview",
+              {
+                "group": "Build",
+                "icon": "shapes",
+                "pages": [
+                  "pylon-docs/ai-agents/build",
+                  "pylon-docs/ai-agents/build/resources",
+                  "pylon-docs/ai-agents/build/runbooks"
+                ]
+              },
+              "pylon-docs/ai-agents/test",
+              "pylon-docs/ai-agents/deploy",
+              "pylon-docs/ai-agents/monitor-and-iterate"
+            ]
+          },
+          {
+            "group": "Knowledge Base",
+            "pages": [
+              "pylon-docs/knowledge-base/overview",
+              {
+                "group": "Articles & Collections",
+                "icon": "file",
+                "pages": [
+                  "pylon-docs/knowledge-base/articles-and-collections",
+                  "pylon-docs/knowledge-base/articles-and-collections/editor",
+                  "pylon-docs/knowledge-base/articles-and-collections/copilot",
+                  "pylon-docs/knowledge-base/articles-and-collections/templates",
+                  "pylon-docs/knowledge-base/articles-and-collections/collaboration"
+                ]
+              },
+              "pylon-docs/knowledge-base/knowledge-gaps",
+              "pylon-docs/knowledge-base/styling-and-customization",
+              "pylon-docs/knowledge-base/custom-authentication",
+              "pylon-docs/knowledge-base/search",
+              "pylon-docs/knowledge-base/translation"
+            ]
+          },
+          {
+            "group": "Customer Portal",
+            "pages": [
+              "pylon-docs/customer-portal/overview",
+              "pylon-docs/customer-portal/styling-and-customization",
+              "pylon-docs/customer-portal/access-control",
+              "pylon-docs/customer-portal/portal-experience",
+              "pylon-docs/customer-portal/custom-authentication"
+            ]
+          },
+          {
+            "group": "Chat Widget",
+            "pages": [
+              "pylon-docs/chat-widget/overview",
+              "pylon-docs/chat-widget/styling",
+              "pylon-docs/chat-widget/functionality",
+              "pylon-docs/chat-widget/chat-experience",
+              "pylon-docs/chat-widget/chat-setup",
+              "pylon-docs/chat-widget/identity-verification",
+              "pylon-docs/chat-widget/javascript-api"
+            ]
+          },
+          {
+            "group": "Account Intelligence",
+            "pages": [
+              {
+                "group": "Accounts",
+                "icon": "building",
+                "pages": [
+                  "pylon-docs/account-intelligence/accounts",
+                  "pylon-docs/account-intelligence/accounts/views",
+                  "pylon-docs/account-intelligence/accounts/copilot",
+                  "pylon-docs/account-intelligence/accounts/highlights",
+                  "pylon-docs/account-intelligence/accounts/sidebar"
+                ]
+              },
+              {
+                "group": "Notebooks",
+                "icon": "notebook",
+                "pages": [
+                  "pylon-docs/account-intelligence/notebooks",
+                  "pylon-docs/account-intelligence/notebooks/blocks"
+                ]
+              },
+              {
+                "group": "Tasks & Projects",
+                "icon": "hexagon-check",
+                "pages": [
+                  "pylon-docs/account-intelligence/tasks-and-projects",
+                  "pylon-docs/account-intelligence/tasks-and-projects/project-templates",
+                  "pylon-docs/account-intelligence/tasks-and-projects/ai-tasks",
+                  "pylon-docs/account-intelligence/tasks-and-projects/views"
+                ]
+              },
+              {
+                "group": "Activities",
+                "icon": "wave-pulse",
+                "pages": [
+                  "pylon-docs/account-intelligence/activities",
+                  "pylon-docs/account-intelligence/activities/custom-activities"
+                ]
+              },
+              {
+                "group": "Fields",
+                "icon": "pencil",
+                "pages": [
+                  "pylon-docs/account-intelligence/fields",
+                  "pylon-docs/account-intelligence/fields/formulas",
+                  "pylon-docs/account-intelligence/fields/ai-fields"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Reporting & Analytics",
+            "pages": [
+              "pylon-docs/reporting-and-analytics/analytics",
+              "pylon-docs/reporting-and-analytics/default-dashboards",
+              "pylon-docs/reporting-and-analytics/custom-dashboards"
+            ]
+          },
+          {
+            "group": "Broadcasts",
+            "pages": [
+              "pylon-docs/broadcasts/overview",
+              "pylon-docs/broadcasts/create-a-broadcast",
+              "pylon-docs/broadcasts/analytics"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              {
+                "group": "CRM",
+                "pages": [
+                  "pylon-docs/integrations/crm",
+                  "pylon-docs/integrations/crm/salesforce",
+                  "pylon-docs/integrations/crm/hubspot",
+                  "pylon-docs/integrations/crm/attio",
+                  "pylon-docs/integrations/crm/pipedrive"
+                ]
+              },
+              {
+                "group": "Ticketing",
+                "pages": [
+                  "pylon-docs/integrations/ticketing",
+                  "pylon-docs/integrations/ticketing/linear",
+                  "pylon-docs/integrations/ticketing/github-issues",
+                  "pylon-docs/integrations/ticketing/asana",
+                  "pylon-docs/integrations/ticketing/jira"
+                ]
+              },
+              {
+                "group": "Alerting",
+                "pages": [
+                  "pylon-docs/integrations/alerting",
+                  "pylon-docs/integrations/alerting/pagerduty",
+                  "pylon-docs/integrations/alerting/opsgenie"
+                ]
+              },
+              {
+                "group": "Chat",
+                "pages": [
+                  "pylon-docs/integrations/chat",
+                  {
+                    "group": "Slack",
+                    "icon": "slack",
+                    "pages": [
+                      "pylon-docs/integrations/chat/slack",
+                      "pylon-docs/integrations/chat/slack/editor",
+                      "pylon-docs/integrations/chat/slack/collect-data",
+                      "pylon-docs/integrations/chat/slack/support-ticket-flow",
+                      "pylon-docs/integrations/chat/slack/welcome-message",
+                      "pylon-docs/integrations/chat/slack/bookmarks",
+                      "pylon-docs/integrations/chat/slack/onboard-employees",
+                      "pylon-docs/integrations/chat/slack/left-company",
+                      "pylon-docs/integrations/chat/slack/slack-community"
+                    ]
+                  },
+                  "pylon-docs/integrations/chat/microsoft-teams",
+                  "pylon-docs/integrations/chat/discord"
+                ]
+              },
+              {
+                "group": "Incident Management",
+                "pages": [
+                  "pylon-docs/integrations/incident-management",
+                  "pylon-docs/integrations/incident-management/incident.io"
+                ]
+              },
+              {
+                "group": "Call Recording",
+                "pages": [
+                  "pylon-docs/integrations/call-recording",
+                  "pylon-docs/integrations/call-recording/gong",
+                  "pylon-docs/integrations/call-recording/fathom",
+                  "pylon-docs/integrations/call-recording/grain",
+                  "pylon-docs/integrations/call-recording/fireflies"
+                ]
+              },
+              {
+                "group": "Data Warehouse",
+                "pages": [
+                  "pylon-docs/data-warehouse",
+                  "pylon-docs/data-warehouse/snowflake",
+                  "pylon-docs/data-warehouse/bigquery",
+                  "pylon-docs/data-warehouse/redshift"
+                ]
+              },
+              {
+                "group": "Calendar",
+                "pages": [
+                  "pylon-docs/calendar",
+                  "pylon-docs/calendar/google-calendar",
+                  "pylon-docs/calendar/outlook-calendar"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Developers",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Developers",
+            "pages": [
+              {
+                "group": "API",
+                "icon": "webhook",
+                "pages": [
+                  "pylon-docs/developer/api",
+                  "pylon-docs/developer/api/authentication",
+                  "pylon-docs/developer/api/errors",
+                  {
+                    "group": "API Reference",
+                    "pages": [
+                      "pylon-docs/developer/api/api-reference/attachments/index",
+                      {
+                        "group": "Accounts",
+                        "pages": [
+                          "pylon-docs/developer/api/api-reference/accounts/index",
+                          "pylon-docs/developer/api/api-reference/accounts/activities",
+                          "pylon-docs/developer/api/api-reference/accounts/highlights"
+                        ]
+                      },
+                      "pylon-docs/developer/api/api-reference/contacts/index",
+                      "pylon-docs/developer/api/api-reference/custom-fields/index",
+                      "pylon-docs/developer/api/api-reference/issues/index",
+                      "pylon-docs/developer/api/api-reference/knowledge-base/index",
+                      "pylon-docs/developer/api/api-reference/me/index",
+                      "pylon-docs/developer/api/api-reference/messages/index",
+                      "pylon-docs/developer/api/api-reference/tags/index",
+                      "pylon-docs/developer/api/api-reference/tasks-and-projects/index",
+                      "pylon-docs/developer/api/api-reference/teams/index",
+                      "pylon-docs/developer/api/api-reference/ticket-forms/index",
+                      "pylon-docs/developer/api/api-reference/user-roles/index",
+                      "pylon-docs/developer/api/api-reference/users/index"
+                    ]
+                  },
+                  "pylon-docs/developer/api/external-ids"
+                ]
+              },
+              "pylon-docs/developer/custom-apps",
+              "pylon-docs/developer/embedded-iframes",
+              "pylon-docs/developer/webhooks"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Website",
+          "href": "https://usepylon.com/",
+          "icon": "globe"
+        },
+        {
+          "anchor": "Knowledge Base",
+          "href": "https://support.usepylon.com/",
+          "icon": "graduation-cap"
+        },
+        {
+          "anchor": "Changelog",
+          "href": "https://usepylon.com/changelog",
+          "icon": "bullhorn"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/logo-pylon.svg",
+    "dark": "/logo/logo-pylon.svg",
+    "href": "https://usepylon.com/"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Login",
+        "href": "https://app.usepylon.com/"
+      }
+    ],
+    "primary": {
+      "label": "Book a Demo",
+      "type": "button",
+      "href": "https://usepylon.com/get-started"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/usepylon",
+      "linkedin": "https://www.linkedin.com/company/usepylon/"
+    }
+  }
+}
